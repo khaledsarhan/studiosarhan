@@ -72,6 +72,17 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;paddi
 .lede h1{font-size:clamp(2rem,4.6vw,3.8rem)}
 .lede p{margin:1.4rem auto 0}
 .top{align-items:center}
+.track img{cursor:pointer}
+.lb{position:fixed;inset:0;z-index:50;background:#05070a;display:flex;align-items:center;justify-content:center}
+.lb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+.lb button{position:absolute;display:flex;align-items:center;justify-content:center;width:3rem;height:3rem;padding:0 0 .15rem;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(10,12,16,.55);color:#fff;font:300 1.6rem/1 var(--sans);cursor:pointer}
+.lb button:hover{border-color:#fff}
+.lb button:disabled{opacity:.25;cursor:default}
+.lb button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.lb .x{top:calc(env(safe-area-inset-top,0px) + .8rem);right:.8rem}
+.lb .p{left:.8rem;top:50%;margin-top:-1.5rem}
+.lb .n{right:.8rem;top:50%;margin-top:-1.5rem}
+.lb .c{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + .9rem);left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:.9rem}
 </style>
 </head>
 <body>
@@ -130,6 +141,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;paddi
 <a class="next" href="#quiet-metropolis"><small>Back to the first project</small><b>Quiet Metropolis</b></a>
 </main>
 
+<div class="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer"><img alt=""><button type="button" class="x" aria-label="Close">&times;</button><button type="button" class="p" aria-label="Previous photo">&#8249;</button><button type="button" class="n" aria-label="Next photo">&#8250;</button><div class="c" aria-live="polite"></div></div>
 <footer><span>© 2026 Studio Sarhan</span><a href="https://www.instagram.com/studiosarhan/" target="_blank" rel="noopener">@studiosarhan</a></footer>
 <script>
 document.querySelectorAll("[data-cover]").forEach(function(i){var s=document.querySelector('[data-view="'+i.dataset.cover+'"] img');if(s)i.src=s.src});
@@ -150,7 +162,19 @@ function go(k){k=Math.max(0,Math.min(imgs.length-1,k));t.scrollTo({left:k*t.clie
 function ui(){var k=cur();n.textContent=(k+1)+" / "+imgs.length;b[0].disabled=k===0;b[1].disabled=k===imgs.length-1}
 b[0].onclick=function(){go(cur()-1)};b[1].onclick=function(){go(cur()+1)};
 t.addEventListener("scroll",ui);ui()});
-document.addEventListener("keydown",function(e){if(e.key!=="ArrowLeft"&&e.key!=="ArrowRight")return;var t=document.querySelector("[data-view]:not([hidden]) .track");if(!t||!t.clientWidth)return;var k=Math.round(t.scrollLeft/t.clientWidth)+(e.key==="ArrowRight"?1:-1);k=Math.max(0,Math.min(t.children.length-1,k));t.scrollTo({left:k*t.clientWidth,behavior:"smooth"})});
+document.addEventListener("keydown",function(e){if(e.key!=="ArrowLeft"&&e.key!=="ArrowRight")return;if(document.querySelector(".lb:not([hidden])"))return;var t=document.querySelector("[data-view]:not([hidden]) .track");if(!t||!t.clientWidth)return;var k=Math.round(t.scrollLeft/t.clientWidth)+(e.key==="ArrowRight"?1:-1);k=Math.max(0,Math.min(t.children.length-1,k));t.scrollTo({left:k*t.clientWidth,behavior:"smooth"})});
+var lb=document.querySelector(".lb"),li=lb.querySelector("img"),lc=lb.querySelector(".c"),lp=lb.querySelector(".p"),ln=lb.querySelector(".n"),lx=lb.querySelector(".x"),set=[],at=0,tx=null;
+function show(k){at=Math.max(0,Math.min(set.length-1,k));li.src=set[at].src;li.alt=set[at].alt;lc.textContent=set.length>1?(at+1)+" / "+set.length:"";lp.hidden=ln.hidden=set.length<2;lp.disabled=at===0;ln.disabled=at===set.length-1}
+function openLb(l,k){set=l;lb.hidden=false;document.body.style.overflow="hidden";show(k);lx.focus();if(lb.requestFullscreen){try{lb.requestFullscreen().catch(function(){})}catch(x){}}}
+function closeLb(){if(lb.hidden)return;lb.hidden=true;document.body.style.overflow="";if(document.fullscreenElement&&document.exitFullscreen){document.exitFullscreen().catch(function(){})}}
+document.addEventListener("click",function(e){var i=e.target.closest&&e.target.closest(".track img");if(!i)return;var l=[].slice.call(i.parentNode.children);openLb(l,l.indexOf(i))});
+lx.onclick=closeLb;lp.onclick=function(){show(at-1)};ln.onclick=function(){show(at+1)};
+lb.addEventListener("click",function(e){if(e.target===lb)closeLb()});
+document.addEventListener("fullscreenchange",function(){if(!document.fullscreenElement)closeLb()});
+document.addEventListener("keydown",function(e){if(lb.hidden)return;if(e.key==="Escape")closeLb();else if(e.key==="ArrowLeft")show(at-1);else if(e.key==="ArrowRight")show(at+1)});
+lb.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});
+lb.addEventListener("touchend",function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>50)show(at+(d<0?1:-1))});
+window.addEventListener("hashchange",function(){closeLb()});
 window.addEventListener("hashchange",route);route();
 </script>
 </body>
