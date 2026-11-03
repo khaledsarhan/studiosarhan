@@ -3,8 +3,6 @@
 --pad:clamp(1.2rem,4vw,3rem);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f2f0ea;--ink:#171a20;--mute:#5d6470;--line:#d6d2c8;--blue:#1d4bb8;color-scheme:light}}
 :root[data-theme="light"]{--bg:#f2f0ea;--ink:#171a20;--mute:#5d6470;--line:#d6d2c8;--blue:#1d4bb8;color-scheme:light}
-@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .logo,:root:not([data-theme="dark"]) .mono{filter:invert(1) hue-rotate(180deg)}}
-:root[data-theme="light"] .logo,:root[data-theme="light"] .mono{filter:invert(1) hue-rotate(180deg)}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
