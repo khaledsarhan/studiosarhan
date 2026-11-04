@@ -104,7 +104,7 @@ const jsonLd = {
         <h2>{site.photographer}</h2>
         {about.summary && <p>{about.summary}</p>}
         <div class="actions">
-          <a class="btn" href={url('/about/')}>About &amp; commissions</a>
+          <a class="btn" href={url('/about/')}>{site.offerCommissions ? 'About & commissions' : 'About'}</a>
           <a class="btn ghost" href={url('/about/#contact')}>Get in touch →</a>
         </div>
       </div>

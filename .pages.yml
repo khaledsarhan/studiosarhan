@@ -167,6 +167,9 @@ content:
       - name: instagram
         label: Instagram handle (without @)
         type: string
+      - name: offerCommissions
+        label: Offer commissions (shows the Commissions section and booking-style contact form)
+        type: boolean
       - name: contactFormEndpoint
         label: Contact form address (from Formspree or similar; empty hides the form)
         type: string
@@ -177,11 +180,19 @@ content:
     path: src/data/legal.json
     format: json
     fields:
+      - name: mode
+        label: Type (personal = name and town only; business = full Impressum)
+        type: select
+        options:
+          values: [personal, business]
       - name: name
         label: Full name (Medieninhaber)
         type: string
+      - name: town
+        label: Town you live in (personal mode)
+        type: string
       - name: address
-        label: Business address (street, postcode, city, country; one per line)
+        label: Business address (business mode; street, postcode, city, country; one per line)
         type: text
       - name: phone
         label: Phone (optional)

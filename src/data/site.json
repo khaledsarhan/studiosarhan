@@ -3,5 +3,6 @@
   "photographer": "Khaled Sarhan",
   "email": "hello@studiosarhan.com",
   "instagram": "studiosarhan",
-  "contactFormEndpoint": "https://formspree.io/f/xzeeyaka"
+  "contactFormEndpoint": "https://formspree.io/f/xzeeyaka",
+  "offerCommissions": false
 }
