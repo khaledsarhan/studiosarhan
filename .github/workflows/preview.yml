@@ -22,11 +22,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
       - name: Install and build
         id: build
         run: |
           set -o pipefail
-          npm install --no-audit --no-fund 2>&1 | tee build.log
+          npm ci --no-audit --no-fund 2>&1 | tee build.log
           npm run build 2>&1 | tee -a build.log
         continue-on-error: true
       - name: Save log and built pages to the preview-build branch

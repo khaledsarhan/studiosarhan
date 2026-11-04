@@ -44,8 +44,10 @@ page points visitors to Instagram.
 ## Working on it locally
 
 ```sh
-npm install
+npm ci        # installs the exact versions in package-lock.json
 npm run dev
 ```
+
+To update Astro and the other packages, run `npm update` and commit the changed `package-lock.json`.
 
 Fonts: Cinzel and Open Sans (SIL Open Font License, see `src/assets/fonts/`).
