@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/url';
+---
+<Base title="Page not found – Studio Sarhan" noindex>
+  <section class="wrap nf">
+    <span class="kicker">404</span>
+    <h1>Page not found</h1>
+    <p>The page you were looking for doesn't exist. Go to the <a href={url('/')} style="color: var(--gold)">home page</a> or see the <a href={url('/#work')} style="color: var(--gold)">series</a>.</p>
+  </section>
+</Base>

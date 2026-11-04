@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import { getProjects, countLabel, widthsFor } from '../lib/projects';
+import { url } from '../lib/url';
+
+const home = (await getEntry('pages', 'home'))!.data;
+const about = (await getEntry('pages', 'about'))!.data;
+const projects = await getProjects();
+const heroProject = projects.find((p) => p.id === home.heroProject);
+
+// A few photos from across the projects for the Instagram strip.
+const strip: { image: any; alt: string }[] = [];
+for (let i = 0; strip.length < 6 && i < 12; i++) {
+  for (const p of projects) {
+    const ph = p.data.photos[i];
+    if (ph && strip.length < 6) strip.push(ph);
+  }
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.photographer,
+  jobTitle: 'Photographer',
+  url: 'https://studiosarhan.com/',
+  sameAs: [`https://www.instagram.com/${site.instagram}/`],
+  brand: { '@type': 'Brand', name: site.name },
+};
+---
+<Base title={home.title} description={home.description} overlayHeader current={null} jsonLd={jsonLd}>
+  <section class="hero">
+    {home.heroImage && (
+      <Image
+        src={home.heroImage}
+        alt={home.heroAlt ?? ''}
+        widths={widthsFor(home.heroImage, [1024, 1600, 2400])}
+        sizes="100vw"
+        format="webp"
+        quality={82}
+        loading="eager"
+        fetchpriority="high"
+        style={`object-position:${home.heroPosition}`}
+      />
+    )}
+    <div class="hero-text">
+      <div>
+        <span class="kicker">Photography</span>
+        <h1>{home.heading ?? site.name}</h1>
+        {home.intro && <p>{home.intro}</p>}
+      </div>
+      {heroProject && (
+        <a class="hero-credit" href={url(`/${heroProject.id}/`)}>
+          <small>Cover image from</small>
+          <b>{heroProject.data.title} →</b>
+        </a>
+      )}
+    </div>
+  </section>
+
+  <section id="work" class="section wrap">
+    <div class="section-head">
+      <div>
+        <span class="kicker plain">Selected work</span>
+        <h2>Series</h2>
+      </div>
+      <p>Open a series to see it as a sequence, then step through each photograph full screen.</p>
+    </div>
+    <div class:list={['series-grid', { stagger: projects.length > 1 }]}>
+      {projects.map((p, i) => (
+        <a class="series-card" href={url(`/${p.id}/`)}>
+          <div class="cover">
+            <Image
+              src={p.data.cover}
+              alt={p.data.coverAlt}
+              widths={widthsFor(p.data.cover, [640, 1024, 1600])}
+              sizes="(max-width: 1000px) 100vw, 50vw"
+              format="webp"
+              quality={80}
+              style={`object-position:${p.data.coverPosition}`}
+            />
+          </div>
+          <div class="meta">
+            <div class="row">
+              <span><span class="num">{String(i + 1).padStart(2, '0')}</span><h3>{p.data.title}</h3></span>
+              <span class="count">{countLabel(p.data.photos.length)}</span>
+            </div>
+            <p>{p.data.summary}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap section split">
+      <div class="portrait">
+        <img src={url('/assets/img/portrait-dark.svg')} width="766" height="971" alt={`Line drawing of ${site.photographer}`} loading="lazy" />
+      </div>
+      <div class="copy">
+        <span class="kicker plain">Behind the lens</span>
+        <h2>{site.photographer}</h2>
+        {about.summary && <p>{about.summary}</p>}
+        <div class="actions">
+          <a class="btn" href={url('/about/')}>About &amp; commissions</a>
+          <a class="btn ghost" href={url('/about/#contact')}>Get in touch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <h2>More on Instagram</h2>
+      <a href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener" style="color: var(--gold); letter-spacing: .12em; font-size: 14px">@{site.instagram} →</a>
+    </div>
+    <div class="strip">
+      {strip.map((ph) => (
+        <a href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener">
+          <Image src={ph.image} alt={ph.alt} width={600} format="webp" quality={75} loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

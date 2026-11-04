@@ -1,0 +1,48 @@
+# Test build for any branch other than main. It never touches the live site:
+# the build log and the built pages are saved to the "preview-build" branch
+# so changes can be checked before they go live.
+name: Preview build
+
+on:
+  push:
+    branches-ignore: [main, preview-build]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install and build
+        id: build
+        run: |
+          set -o pipefail
+          npm install --no-audit --no-fund 2>&1 | tee build.log
+          npm run build 2>&1 | tee -a build.log
+        continue-on-error: true
+      - name: Save log and built pages to the preview-build branch
+        run: |
+          mkdir -p /tmp/out
+          cp build.log /tmp/out/build.log
+          echo "${{ steps.build.outcome }}" > /tmp/out/STATUS
+          echo "${{ github.ref_name }} ${{ github.sha }}" > /tmp/out/SOURCE
+          if [ -d dist ]; then cp -r dist /tmp/out/dist; fi
+          cd /tmp/out
+          git init -q -b preview-build
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Preview of ${{ github.ref_name }} @ ${{ github.sha }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" preview-build
+      - name: Fail if the build failed
+        if: steps.build.outcome != 'success'
+        run: exit 1

@@ -1,0 +1,169 @@
+# Pages CMS (https://pagescms.org) — an editing dashboard for this site.
+# Sign in there with GitHub and open this repository to add projects and photos.
+
+media:
+  input: src/assets/photos
+  output: ../../assets/photos
+  extensions: [jpg, jpeg, png, webp, avif]
+
+content:
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, order, draft]
+      primary: title
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: summary
+        label: One-line summary (home page)
+        type: string
+        required: true
+      - name: order
+        label: Position on the home page (1 = first)
+        type: number
+        default: 99
+      - name: draft
+        label: Hide this project (draft)
+        type: boolean
+        default: false
+      - name: year
+        label: Year
+        type: string
+      - name: place
+        label: Place
+        type: string
+      - name: note
+        label: Short note shown beside a photo (optional)
+        type: string
+      - name: cover
+        label: Cover photo
+        type: image
+        required: true
+      - name: coverAlt
+        label: Cover description (for screen readers and Google)
+        type: string
+        required: true
+      - name: coverPosition
+        label: Cover crop focus (e.g. 50% 50% = centre, 70% 50% = right of centre)
+        type: string
+        default: 50% 50%
+      - name: photos
+        label: Photos (in order)
+        type: object
+        list: true
+        fields:
+          - name: image
+            label: Photo
+            type: image
+            required: true
+          - name: alt
+            label: Description (for screen readers and Google)
+            type: string
+            required: true
+          - name: title
+            label: Title (optional)
+            type: string
+          - name: caption
+            label: Caption (optional)
+            type: string
+          - name: size
+            label: Layout
+            type: select
+            default: auto
+            options:
+              values: [auto, full, half]
+      - name: body
+        label: Series description
+        type: rich-text
+
+  - name: home
+    label: Home page
+    type: file
+    path: src/content/pages/home.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Browser tab title
+        type: string
+      - name: description
+        label: Google description
+        type: text
+      - name: heading
+        label: Big heading
+        type: string
+      - name: intro
+        label: Intro line
+        type: text
+      - name: heroImage
+        label: Full-screen photo
+        type: image
+      - name: heroAlt
+        label: Photo description
+        type: string
+      - name: heroPosition
+        label: Photo crop focus
+        type: string
+      - name: heroProject
+        label: Project the photo is from (its file name, e.g. quiet-metropolis)
+        type: string
+
+  - name: about
+    label: About page
+    type: file
+    path: src/content/pages/about.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Browser tab title
+        type: string
+      - name: description
+        label: Google description
+        type: text
+      - name: heading
+        label: Heading
+        type: string
+      - name: summary
+        label: Short bio (shown on the home page)
+        type: text
+      - name: services
+        label: Commissions
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: text
+            type: text
+      - name: body
+        label: Full bio
+        type: rich-text
+
+  - name: settings
+    label: Site settings
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: name
+        label: Studio name
+        type: string
+      - name: photographer
+        label: Photographer
+        type: string
+      - name: instagram
+        label: Instagram handle (without @)
+        type: string
+      - name: contactFormEndpoint
+        label: Contact form address (from Formspree or similar; empty hides the form)
+        type: string
