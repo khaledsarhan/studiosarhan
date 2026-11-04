@@ -1,130 +1,142 @@
 ---
-// Full-screen viewer. Photos on the page open it via links with data-lightbox="<index>".
+// Full-screen viewer with zoom, built on PhotoSwipe (src/vendor/photoswipe, MIT).
+// Photos on the page open it via links with data-lightbox="<index>";
+// a button with data-lightbox-start opens it at the first photo.
+// Zoom: pinch on phones; click, double-click or scroll wheel on desktop; drag to move around.
+import '../vendor/photoswipe/photoswipe.css';
+
 interface Props {
   title: string;
-  slides: { src: string; thumb: string; alt: string; caption: string }[];
+  slides: { src: string; width: number; height: number; thumb: string; alt: string; caption: string }[];
 }
 const { title, slides } = Astro.props;
 ---
-<dialog class="lightbox" aria-label={`${title}, full-screen viewer`} data-slides={JSON.stringify(slides)}>
-  <div class="lb-top">
-    <span class="t">{title}</span>
-    <span class="count" aria-live="polite"><b data-lb-current>01</b> / {String(slides.length).padStart(2, '0')}</span>
-    <button type="button" class="icon-btn" data-lb-close aria-label="Close viewer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>
-    </button>
-  </div>
-  <div class="lb-stage">
-    <img data-lb-img alt="" />
-    {slides.length > 1 && (
-      <>
-        <button type="button" class="icon-btn lb-arrow prev" data-lb-prev aria-label="Previous photograph">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
-        </button>
-        <button type="button" class="icon-btn lb-arrow next" data-lb-next aria-label="Next photograph">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
-        </button>
-      </>
-    )}
-  </div>
-  <p class="lb-caption" data-lb-caption></p>
-  {slides.length > 1 && (
-    <div class="lb-thumbs">
-      {slides.map((s, i) => (
-        <button type="button" data-lb-go={i} aria-label={`Show photograph ${i + 1}`} aria-current="false">
-          <img src={s.thumb} alt="" loading="lazy" />
-        </button>
-      ))}
-    </div>
-  )}
-</dialog>
+<div hidden data-viewer data-title={title} data-slides={JSON.stringify(slides)}></div>
 
 <script>
-  const dialog = document.querySelector<HTMLDialogElement>('dialog.lightbox');
-  if (dialog) {
-    type Slide = { src: string; thumb: string; alt: string; caption: string };
-    const slides: Slide[] = JSON.parse(dialog.dataset.slides || '[]');
-    const img = dialog.querySelector<HTMLImageElement>('[data-lb-img]')!;
-    const cap = dialog.querySelector<HTMLElement>('[data-lb-caption]')!;
-    const cur = dialog.querySelector<HTMLElement>('[data-lb-current]')!;
-    const prev = dialog.querySelector<HTMLButtonElement>('[data-lb-prev]');
-    const next = dialog.querySelector<HTMLButtonElement>('[data-lb-next]');
-    const thumbs = Array.from(dialog.querySelectorAll<HTMLButtonElement>('[data-lb-go]'));
-    let at = 0;
-    let lastFocus: HTMLElement | null = null;
+  import PhotoSwipeLightbox from '../vendor/photoswipe/photoswipe-lightbox.esm.min.js';
 
-    const preload = (i: number) => { if (slides[i]) { const p = new Image(); p.src = slides[i].src; } };
+  type Slide = { src: string; width: number; height: number; thumb: string; alt: string; caption: string };
+  const holder = document.querySelector<HTMLElement>('[data-viewer]');
 
-    const show = (i: number) => {
-      at = Math.max(0, Math.min(slides.length - 1, i));
-      const s = slides[at];
-      img.classList.add('loading');
-      img.onload = () => img.classList.remove('loading');
-      img.src = s.src;
-      img.alt = s.alt;
-      cap.textContent = s.caption;
-      cur.textContent = String(at + 1).padStart(2, '0');
-      if (prev) prev.disabled = at === 0;
-      if (next) next.disabled = at === slides.length - 1;
-      thumbs.forEach((t, k) => {
-        t.setAttribute('aria-current', String(k === at));
-        if (k === at) t.scrollIntoView({ block: 'nearest', inline: 'center' });
-      });
-      preload(at + 1);
-      preload(at - 1);
-      history.replaceState(null, '', `#photo-${at + 1}`);
-    };
+  if (holder) {
+    const slides: Slide[] = JSON.parse(holder.dataset.slides || '[]');
+    const title = holder.dataset.title || '';
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-lightbox]'));
 
-    const open = (i: number) => {
-      lastFocus = document.activeElement as HTMLElement;
-      dialog.showModal();
-      document.documentElement.style.overflow = 'hidden';
-      show(i);
-    };
-
-    const close = () => dialog.close();
-    dialog.addEventListener('close', () => {
-      document.documentElement.style.overflow = '';
-      history.replaceState(null, '', location.pathname + location.search);
-      lastFocus?.focus();
+    const lightbox = new PhotoSwipeLightbox({
+      dataSource: slides.map((s) => ({ src: s.src, width: s.width, height: s.height, alt: s.alt, msrc: s.thumb })),
+      pswpModule: () => import('../vendor/photoswipe/photoswipe.esm.min.js'),
+      bgOpacity: 1,
+      showHideAnimationType: 'zoom',
+      // Click / tap the photo to zoom in, again to zoom out. Double-tap also zooms.
+      imageClickAction: 'zoom',
+      tapAction: 'toggle-controls',
+      doubleTapAction: 'zoom',
+      bgClickAction: 'close',
+      wheelToZoom: true,
+      // First zoom step shows the photo at full resolution (or 2x on smaller screens).
+      secondaryZoomLevel: (zoom: any) => Math.max(zoom.initial * 2, Math.min(1, zoom.initial * 3)),
+      maxZoomLevel: (zoom: any) => Math.max(zoom.initial * 4, 1.5),
+      closeOnVerticalDrag: true,
+      // Room for the title bar above and the caption + thumbnails below.
+      paddingFn: (viewport: { x: number; y: number }) => {
+        const phone = viewport.x < 640;
+        return { top: phone ? 56 : 64, bottom: slides.length > 1 ? (phone ? 96 : 118) : 56, left: phone ? 0 : 72, right: phone ? 0 : 72 };
+      },
+      arrowPrevTitle: 'Previous photograph',
+      arrowNextTitle: 'Next photograph',
+      closeTitle: 'Close viewer',
+      zoomTitle: 'Zoom in or out',
+      errorMsg: 'This photograph could not be loaded.',
+      indexIndicatorSep: ' / ',
     });
 
-    document.querySelectorAll<HTMLAnchorElement>('[data-lightbox]').forEach((a) => {
+    // The photo on the page that the viewer opens from and closes back to.
+    lightbox.addFilter('thumbEl', (el: any, _data: any, index: number) => links.find((a) => Number(a.dataset.lightbox) === index)?.querySelector('img') || el);
+    lightbox.addFilter('placeholderSrc', (src: any, slide: any) => {
+      const img = links.find((a) => Number(a.dataset.lightbox) === slide.index)?.querySelector('img');
+      return img?.currentSrc || src;
+    });
+
+    lightbox.on('uiRegister', () => {
+      const pswp = lightbox.pswp as any;
+
+      // Series title, top left
+      pswp.ui.registerElement({
+        name: 'series-title',
+        order: 5,
+        isButton: false,
+        appendTo: 'bar',
+        onInit: (el: HTMLElement) => { el.textContent = title; },
+      });
+
+      // Caption under the photo
+      pswp.ui.registerElement({
+        name: 'caption',
+        order: 9,
+        isButton: false,
+        appendTo: 'root',
+        onInit: (el: HTMLElement) => {
+          el.setAttribute('aria-live', 'polite');
+          pswp.on('change', () => { el.textContent = slides[pswp.currIndex]?.caption || ''; });
+        },
+      });
+
+      // Thumbnail strip
+      if (slides.length > 1) {
+        pswp.ui.registerElement({
+          name: 'thumbs',
+          order: 10,
+          isButton: false,
+          appendTo: 'root',
+          onInit: (el: HTMLElement) => {
+            const buttons = slides.map((s, i) => {
+              const b = document.createElement('button');
+              b.type = 'button';
+              b.setAttribute('aria-label', `Show photograph ${i + 1}`);
+              const img = document.createElement('img');
+              img.src = s.thumb;
+              img.alt = '';
+              b.appendChild(img);
+              b.addEventListener('click', () => pswp.goTo(i));
+              el.appendChild(b);
+              return b;
+            });
+            pswp.on('change', () => {
+              buttons.forEach((b, i) => b.setAttribute('aria-current', String(i === pswp.currIndex)));
+              buttons[pswp.currIndex]?.scrollIntoView({ block: 'nearest', inline: 'center' });
+            });
+          },
+        });
+      }
+    });
+
+    // Keep a shareable link to the photo being viewed, e.g. /quiet-metropolis/#photo-3
+    lightbox.on('change', () => {
+      const i = (lightbox.pswp as any)?.currIndex ?? 0;
+      history.replaceState(null, '', `#photo-${i + 1}`);
+    });
+    lightbox.on('close', () => history.replaceState(null, '', location.pathname + location.search));
+
+    lightbox.init();
+
+    links.forEach((a) =>
       a.addEventListener('click', (e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey) return;
         e.preventDefault();
-        open(Number(a.dataset.lightbox));
-      });
-    });
+        lightbox.loadAndOpen(Number(a.dataset.lightbox));
+      }),
+    );
     document.querySelectorAll<HTMLElement>('[data-lightbox-start]').forEach((b) =>
-      b.addEventListener('click', (e) => { e.preventDefault(); open(0); }),
+      b.addEventListener('click', (e) => { e.preventDefault(); lightbox.loadAndOpen(0); }),
     );
 
-    dialog.querySelector('[data-lb-close]')?.addEventListener('click', close);
-    prev?.addEventListener('click', () => show(at - 1));
-    next?.addEventListener('click', () => show(at + 1));
-    thumbs.forEach((t) => t.addEventListener('click', () => show(Number(t.dataset.lbGo))));
-
-    dialog.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); show(at - 1); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); show(at + 1); }
-    });
-
-    // swipe on phones
-    let x0: number | null = null;
-    const stage = dialog.querySelector<HTMLElement>('.lb-stage')!;
-    stage.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
-    stage.addEventListener('touchend', (e) => {
-      if (x0 === null) return;
-      const dx = e.changedTouches[0].clientX - x0;
-      x0 = null;
-      if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1));
-    });
-    // click on the dark area beside the photo closes the viewer
-    stage.addEventListener('click', (e) => { if (e.target === stage) close(); });
-
-    // a link like /quiet-metropolis/#photo-3 opens that photo directly
     const m = location.hash.match(/^#photo-(\d+)$/);
-    if (m) open(Number(m[1]) - 1);
+    if (m) {
+      const i = Number(m[1]) - 1;
+      if (i >= 0 && i < slides.length) lightbox.loadAndOpen(i);
+    }
+
   }
 </script>
