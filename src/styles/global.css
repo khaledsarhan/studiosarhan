@@ -180,6 +180,7 @@ p { margin: 0; }
 .share-toast { position: fixed; left: 50%; bottom: 28px; z-index: 100001; transform: translate(-50%, 12px); opacity: 0; max-width: calc(100vw - 32px); padding: 12px 20px; background: #111; border: 1px solid var(--gold); color: #fff; font: 400 14px var(--sans); letter-spacing: 0.04em; overflow-wrap: anywhere; transition: opacity .25s, transform .25s; pointer-events: none; }
 .share-toast.show { opacity: 1; transform: translate(-50%, 0); }
 .pswp .share-toast { position: absolute; bottom: 130px; }
+.pswp .pswp__button--share .pswp__icn { fill: none; stroke: var(--pswp-icon-color); width: 24px; height: 24px; top: 18px; left: 13px; }
 
 /* ---------- about ---------- */
 .frame { position: relative; padding: 36px; }
