@@ -1,6 +1,8 @@
 ---
 title: About – Studio Sarhan
-description: About photographer Khaled Sarhan and Studio Sarhan, and how to get in touch.
+description: About Khaled Sarhan, a Vienna-based photographer completing the
+  Photo Expert Diploma at LIK Akademie. Personal series on landscapes and
+  motion.
 heading: Khaled Sarhan
 summary: I’m a photographer completing the Photo Expert Diploma at the LIK
   Akademie in Vienna. My personal series move between landscapes and motion,
