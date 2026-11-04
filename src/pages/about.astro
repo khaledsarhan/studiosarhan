@@ -72,7 +72,7 @@ const formEndpoint = site.contactFormEndpoint?.trim();
           </>
         ) : (
           <label class="field wide">Subject
-            <select name="subject">
+            <select name="topic">
               {(site.contactSubjects?.length ? site.contactSubjects : ['General question']).map((s, i) => (
                 <option selected={i === 0}>{s}</option>
               ))}
