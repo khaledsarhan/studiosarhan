@@ -1,15 +1,9 @@
 {
-  "_note": "Imprint and privacy details. mode \"personal\" needs name and town; mode \"business\" needs name and full address. The Impressum and Privacy pages appear once those are filled in.",
   "mode": "personal",
-  "name": "",
-  "town": "",
-  "address": "",
-  "phone": "",
+  "name": "Khaled Sarhan",
+  "town": "Vienna",
+  "phone": "+4366475484939",
   "businessActivity": "Fotografie / Photography",
-  "uid": "",
-  "chamber": "",
-  "authority": "",
   "tradeRules": "Gewerbeordnung (GewO)",
-  "profession": "",
   "privacyUpdated": "November 2026"
 }
