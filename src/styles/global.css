@@ -166,7 +166,7 @@ p { margin: 0; }
 .pswp__thumbs img { width: 100%; height: 100%; object-fit: cover; }
 .pswp--ui-visible .pswp__caption, .pswp--ui-visible .pswp__thumbs { opacity: 1; }
 .pswp:not(.pswp--ui-visible) .pswp__caption, .pswp:not(.pswp--ui-visible) .pswp__thumbs { opacity: 0; pointer-events: none; }
-.pswp--zoomed-in .pswp__caption, .pswp--zoomed-in .pswp__thumbs { opacity: 0; pointer-events: none; }
+.pswp.pswp--zoomed-in .pswp__caption, .pswp.pswp--zoomed-in .pswp__thumbs { opacity: 0; pointer-events: none; }
 @media (max-width: 640px) {
   .pswp__button--arrow { display: none; }
   .pswp__thumbs button { width: 52px; height: 36px; }
