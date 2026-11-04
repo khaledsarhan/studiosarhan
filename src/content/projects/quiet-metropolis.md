@@ -3,8 +3,8 @@ title: Quiet Metropolis
 summary: Cities seen from a distance, where rooftops, water and sky share the frame.
 order: 1
 note: Light, distance and stillness.
-cover: ../../assets/photos/quiet-metropolis/rooftops.webp
-coverAlt: Black and white view over dense rooftops toward distant hills
+cover: ../../assets/photos/quiet-metropolis/blue-hour-skyline.webp
+coverAlt: City skyline and an elevated train bridge reflected in still water at blue hour
 coverPosition: 50% 50%
 photos:
   - image: ../../assets/photos/quiet-metropolis/blue-hour-skyline.webp
