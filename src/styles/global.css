@@ -142,7 +142,7 @@ p { margin: 0; }
 .note::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
 .note p { font-family: var(--serif); font-size: clamp(22px, 2vw, 28px); line-height: 1.5; letter-spacing: 0.03em; }
 
-.project-end { padding-block: 72px clamp(80px, 10vw, 120px); display: flex; flex-direction: column; gap: 40px; }
+.project-end { padding-block: 72px clamp(80px, 10vw, 120px); display: flex; flex-direction: column; gap: 40px; border-top: 1px solid var(--line-strong); margin-top: 40px; }
 .project-end .bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid var(--line-strong); padding-top: 32px; color: var(--muted); font-size: 13px; letter-spacing: 0.1em; }
 .next { display: flex; flex-wrap: wrap; background: #0b0b0b; border: 1px solid var(--line); }
 .next .img { flex: 1 1 360px; min-height: 300px; overflow: hidden; background: #111; }
@@ -175,7 +175,7 @@ p { margin: 0; }
   .pswp__caption { bottom: 62px; }
 }
 
-.bar-right { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.project-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
 .share-btn svg { width: 18px; height: 18px; }
 .share-toast { position: fixed; left: 50%; bottom: 28px; z-index: 100001; transform: translate(-50%, 12px); opacity: 0; max-width: calc(100vw - 32px); padding: 12px 20px; background: #111; border: 1px solid var(--gold); color: #fff; font: 400 14px var(--sans); letter-spacing: 0.04em; overflow-wrap: anywhere; transition: opacity .25s, transform .25s; pointer-events: none; }
 .share-toast.show { opacity: 1; transform: translate(-50%, 0); }
