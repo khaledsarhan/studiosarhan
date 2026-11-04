@@ -124,7 +124,7 @@ p { margin: 0; }
 .project-head h1 { font-size: clamp(40px, 5.6vw, 80px); line-height: 1.05; letter-spacing: 0.04em; }
 .project-head .about { flex: 1 1 380px; max-width: 560px; display: flex; flex-direction: column; gap: 28px; }
 .project-head .about p { color: #cfcfcf; font-size: 17px; line-height: 1.8; }
-.facts-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line-strong); padding-top: 20px; }
+.facts-row { display: flex; align-items: flex-end; align-items: last baseline; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line-strong); padding-top: 20px; }
 .facts { flex: 1 1 auto; min-width: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 16px; }
 .facts-row .share-btn { flex: none; min-height: 44px; }
 .facts dt { color: var(--dim); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
