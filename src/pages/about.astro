@@ -82,8 +82,8 @@ const formEndpoint = site.contactFormEndpoint?.trim();
         )}
         <label class="field wide">Message<textarea name="message" rows="5" required></textarea></label>
         <div class="wide form-foot">
-          <button type="submit" class="btn solid">Send enquiry</button>
-          <p class="form-note">Your message is sent through Formspree and only used to reply to your enquiry.{legalReady && <> <a href={url('/privacy/')} style="color: var(--muted); text-decoration: underline">Privacy</a></>}</p>
+          <button type="submit" class="btn solid">{site.offerCommissions ? 'Send enquiry' : 'Send message'}</button>
+          <p class="form-note">Your message is sent through Formspree and only used to reply to you.{legalReady && <> <a href={url('/privacy/')} style="color: var(--muted); text-decoration: underline">Privacy</a></>}</p>
         </div>
         <p class="wide form-status" role="status" aria-live="polite" data-status hidden></p>
       </form>
@@ -107,6 +107,7 @@ const formEndpoint = site.contactFormEndpoint?.trim();
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const label = button.textContent;
     button.disabled = true;
     button.textContent = 'Sending…';
     if (status) status.hidden = true;
@@ -121,7 +122,7 @@ const formEndpoint = site.contactFormEndpoint?.trim();
         status.textContent = 'Sorry, the message could not be sent. Please try again, or email hello@studiosarhan.com.';
       }
       button.disabled = false;
-      button.textContent = 'Send enquiry';
+      button.textContent = label;
     }
   });
 </script>
