@@ -73,10 +73,9 @@ const formEndpoint = site.contactFormEndpoint?.trim();
         ) : (
           <label class="field wide">Subject
             <select name="subject">
-              <option>General question</option>
-              <option>Prints</option>
-              <option>Collaboration</option>
-              <option>Something else</option>
+              {(site.contactSubjects?.length ? site.contactSubjects : ['General question']).map((s, i) => (
+                <option selected={i === 0}>{s}</option>
+              ))}
             </select>
           </label>
         )}

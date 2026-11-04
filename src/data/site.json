@@ -4,5 +4,12 @@
   "email": "hello@studiosarhan.com",
   "instagram": "studiosarhan",
   "contactFormEndpoint": "https://formspree.io/f/xzeeyaka",
-  "offerCommissions": false
+  "offerCommissions": false,
+  "contactSubjects": [
+    "General question",
+    "Feedback on my work",
+    "Using one of your photos",
+    "Collaboration",
+    "Something else"
+  ]
 }

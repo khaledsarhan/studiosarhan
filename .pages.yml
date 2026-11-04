@@ -170,6 +170,10 @@ content:
       - name: offerCommissions
         label: Offer commissions (shows the Commissions section and booking-style contact form)
         type: boolean
+      - name: contactSubjects
+        label: Contact form subjects (the first one is selected by default)
+        type: string
+        list: true
       - name: contactFormEndpoint
         label: Contact form address (from Formspree or similar; empty hides the form)
         type: string
