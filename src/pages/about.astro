@@ -48,7 +48,9 @@ const formEndpoint = site.contactFormEndpoint?.trim();
       <a class="ig-link" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener"><InstagramIcon /> Message @{site.instagram} on Instagram</a>
     </div>
     {formEndpoint && (
-      <form action={formEndpoint} method="POST">
+      <form class="enquiry" action={formEndpoint} method="POST" data-enquiry>
+        <input type="hidden" name="_subject" value="New enquiry from studiosarhan.com" />
+        <label class="visually-hidden" aria-hidden="true">Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
         <label class="field">Name<input type="text" name="name" autocomplete="name" required /></label>
         <label class="field">Email<input type="email" name="email" autocomplete="email" required /></label>
         <label class="field">Type of shoot
@@ -59,8 +61,47 @@ const formEndpoint = site.contactFormEndpoint?.trim();
         </label>
         <label class="field">Preferred date<input type="date" name="date" /></label>
         <label class="field wide">Message<textarea name="message" rows="5" required></textarea></label>
-        <div class="wide"><button type="submit" class="btn solid">Send enquiry</button></div>
+        <div class="wide form-foot">
+          <button type="submit" class="btn solid">Send enquiry</button>
+          <p class="form-note">Your message is sent through Formspree and only used to reply to your enquiry.</p>
+        </div>
+        <p class="wide form-status" role="status" aria-live="polite" data-status hidden></p>
       </form>
+    )}
+    {formEndpoint && (
+      <div class="enquiry-sent" data-sent hidden tabindex="-1">
+        <span class="kicker">Thank you</span>
+        <h3>Your message is on its way</h3>
+        <p>I'll get back to you soon, usually within a couple of days.</p>
+      </div>
     )}
   </section>
 </Base>
+
+<script>
+  // Sends the enquiry without leaving the page and shows a thank-you message.
+  // Without JavaScript the form still works and Formspree shows its own confirmation page.
+  const form = document.querySelector<HTMLFormElement>('[data-enquiry]');
+  const sent = document.querySelector<HTMLElement>('[data-sent]');
+  const status = form?.querySelector<HTMLElement>('[data-status]');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    button.disabled = true;
+    button.textContent = 'Sending…';
+    if (status) status.hidden = true;
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(String(res.status));
+      form.hidden = true;
+      if (sent) { sent.hidden = false; sent.focus(); }
+    } catch {
+      if (status) {
+        status.hidden = false;
+        status.textContent = 'Sorry, the message could not be sent. Please try again, or message me on Instagram.';
+      }
+      button.disabled = false;
+      button.textContent = 'Send enquiry';
+    }
+  });
+</script>

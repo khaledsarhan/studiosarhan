@@ -205,6 +205,15 @@ p { margin: 0; }
 .ig-link { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; font-size: 15px; }
 .ig-link svg, .nav .ig svg { width: 20px; height: 20px; }
 
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.form-note { color: var(--dim); font-size: 13px; max-width: 360px; }
+.form-status { color: #e8b4a0; font-size: 14px; }
+.enquiry-sent { flex: 999 1 440px; max-width: 680px; display: flex; flex-direction: column; gap: 16px; justify-content: center; border: 1px solid var(--line); padding: clamp(28px, 4vw, 48px); outline: none; }
+.enquiry-sent[hidden], .enquiry[hidden], .form-status[hidden] { display: none; }
+.enquiry-sent h3 { font-size: clamp(24px, 2.4vw, 32px); }
+.enquiry-sent p { color: var(--muted); font-size: 16px; }
+.btn[disabled] { opacity: .6; cursor: default; }
+
 /* 404 */
 .nf { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding-block: 96px; }
 .nf h1 { font-size: clamp(36px, 5vw, 64px); }
