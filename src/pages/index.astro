@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import SMark from '../components/SMark.astro';
+import InstagramIcon from '../components/InstagramIcon.astro';
 import site from '../data/site.json';
 import { getProjects, countLabel, widthsFor } from '../lib/projects';
 import { url } from '../lib/url';
@@ -10,15 +12,6 @@ const home = (await getEntry('pages', 'home'))!.data;
 const about = (await getEntry('pages', 'about'))!.data;
 const projects = await getProjects();
 const heroProject = projects.find((p) => p.id === home.heroProject);
-
-// A few photos from across the projects for the Instagram strip.
-const strip: { image: any; alt: string }[] = [];
-for (let i = 0; strip.length < 6 && i < 12; i++) {
-  for (const p of projects) {
-    const ph = p.data.photos[i];
-    if (ph && strip.length < 6) strip.push(ph);
-  }
-}
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -111,17 +104,11 @@ const jsonLd = {
     </div>
   </section>
 
-  <section class="section wrap">
-    <div class="section-head">
-      <h2>More on Instagram</h2>
-      <a href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener" style="color: var(--gold); letter-spacing: .12em; font-size: 14px">@{site.instagram} →</a>
-    </div>
-    <div class="strip">
-      {strip.map((ph) => (
-        <a href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener">
-          <Image src={ph.image} alt={ph.alt} width={600} format="webp" quality={75} loading="lazy" />
-        </a>
-      ))}
-    </div>
+  <section class="section wrap follow">
+    <SMark />
+    <span class="kicker plain">Instagram</span>
+    <h2>Follow along</h2>
+    <p>New photographs and work in progress, as it happens.</p>
+    <a class="btn" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener"><InstagramIcon /> @{site.instagram}</a>
   </section>
 </Base>
