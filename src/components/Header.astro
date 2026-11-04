@@ -1,0 +1,21 @@
+---
+import SMark from './SMark.astro';
+import InstagramIcon from './InstagramIcon.astro';
+import site from '../data/site.json';
+import { url } from '../lib/url';
+
+interface Props { overlay?: boolean; current?: 'work' | 'about' | null }
+const { overlay = false, current = null } = Astro.props;
+---
+<header class:list={['site-header', { over: overlay }]}>
+  <a class="brand" href={url('/')} aria-label={`${site.name} home`}>
+    <SMark />
+    <span>{site.name}</span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    <a href={url('/#work')} aria-current={current === 'work' ? 'page' : undefined}>Work</a>
+    <a href={url('/about/')} aria-current={current === 'about' ? 'page' : undefined}>About</a>
+    <a href={url('/about/#contact')}>Contact</a>
+    <a class="ig" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener" aria-label="Instagram"><InstagramIcon /></a>
+  </nav>
+</header>

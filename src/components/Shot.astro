@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import type { Photo } from '../lib/projects';
+import { widthsFor } from '../lib/projects';
+
+interface Props { photo: Photo; index: number; full: string; sizes: string; eager?: boolean }
+const { photo, index, full, sizes, eager = false } = Astro.props;
+const n = String(index + 1).padStart(2, '0');
+---
+<figure class="shot">
+  <a href={full} data-lightbox={index} aria-label={`Open photograph ${index + 1} full screen`}>
+    <Image
+      src={photo.image}
+      alt={photo.alt}
+      widths={widthsFor(photo.image)}
+      sizes={sizes}
+      format="webp"
+      quality={82}
+      loading={eager ? 'eager' : 'lazy'}
+    />
+  </a>
+  <figcaption><b>{n}</b>{photo.title}{photo.title && photo.caption ? ' · ' : ''}{photo.caption}</figcaption>
+</figure>

@@ -1,0 +1,66 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import InstagramIcon from '../components/InstagramIcon.astro';
+import site from '../data/site.json';
+import { url } from '../lib/url';
+
+const entry = (await getEntry('pages', 'about'))!;
+const about = entry.data;
+const { Content } = await render(entry);
+const formEndpoint = site.contactFormEndpoint?.trim();
+---
+<Base title={about.title} description={about.description} current="about">
+  <section class="wrap section split">
+    <div class="portrait frame">
+      <i></i><i></i><i></i><i></i>
+      <img src={url('/assets/img/portrait-dark.svg')} width="766" height="971" alt={`Line drawing of ${site.photographer}`} />
+    </div>
+    <div class="copy">
+      <span class="kicker">About</span>
+      <h1 style="font-size: clamp(38px, 4.6vw, 64px)">{about.heading ?? site.photographer}</h1>
+      <div class="prose"><Content /></div>
+    </div>
+  </section>
+
+  {about.services.length > 0 && (
+    <section class="band">
+      <div class="wrap section">
+        <div class="section-head"><h2>Commissions</h2></div>
+        <div class="services">
+          {about.services.map((s, i) => (
+            <div>
+              <span>{String(i + 1).padStart(2, '0')}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section id="contact" class="wrap section contact">
+    <div class="intro">
+      <span class="kicker">Contact</span>
+      <h2>Let's make something</h2>
+      <p>Tell me what you have in mind and I'll reply with availability and next steps.</p>
+      <a class="ig-link" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener"><InstagramIcon /> Message @{site.instagram} on Instagram</a>
+    </div>
+    {formEndpoint && (
+      <form action={formEndpoint} method="POST">
+        <label class="field">Name<input type="text" name="name" autocomplete="name" required /></label>
+        <label class="field">Email<input type="email" name="email" autocomplete="email" required /></label>
+        <label class="field">Type of shoot
+          <select name="type">
+            {about.services.map((s) => <option>{s.title}</option>)}
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="field">Preferred date<input type="date" name="date" /></label>
+        <label class="field wide">Message<textarea name="message" rows="5" required></textarea></label>
+        <div class="wide"><button type="submit" class="btn solid">Send enquiry</button></div>
+      </form>
+    )}
+  </section>
+</Base>

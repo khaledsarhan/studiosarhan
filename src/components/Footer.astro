@@ -1,0 +1,17 @@
+---
+import site from '../data/site.json';
+import { url } from '../lib/url';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <a href={url('/')} aria-label={`${site.name} home`}>
+    <img class="logo" src={url('/assets/img/logo-dark.svg')} width="964" height="1010" alt={`${site.name} Photography logo`} loading="lazy" />
+  </a>
+  <nav aria-label="Footer">
+    <a href={url('/#work')}>Work</a>
+    <a href={url('/about/')}>About</a>
+    <a href={url('/about/#contact')}>Contact</a>
+    <a href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener">Instagram</a>
+  </nav>
+  <small>© {year} {site.name}. All photographs by {site.photographer}.</small>
+</footer>
