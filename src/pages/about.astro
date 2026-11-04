@@ -2,6 +2,8 @@
 import { getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import InstagramIcon from '../components/InstagramIcon.astro';
+import MailIcon from '../components/MailIcon.astro';
+import { legalReady } from '../lib/legal';
 import site from '../data/site.json';
 import { url } from '../lib/url';
 
@@ -44,8 +46,11 @@ const formEndpoint = site.contactFormEndpoint?.trim();
     <div class="intro">
       <span class="kicker">Contact</span>
       <h2>Let's make something</h2>
-      <p>Tell me what you have in mind and I'll reply with availability and next steps.</p>
-      <a class="ig-link" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener"><InstagramIcon /> Message @{site.instagram} on Instagram</a>
+      <p>Tell me what you have in mind and I'll reply with availability and next steps. Use the form, or write to me directly.</p>
+      <div class="contact-links">
+        <a class="ig-link" href={`mailto:${site.email}`}><MailIcon /> {site.email}</a>
+        <a class="ig-link" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener"><InstagramIcon /> @{site.instagram} on Instagram</a>
+      </div>
     </div>
     {formEndpoint && (
       <form class="enquiry" action={formEndpoint} method="POST" data-enquiry>
@@ -63,7 +68,7 @@ const formEndpoint = site.contactFormEndpoint?.trim();
         <label class="field wide">Message<textarea name="message" rows="5" required></textarea></label>
         <div class="wide form-foot">
           <button type="submit" class="btn solid">Send enquiry</button>
-          <p class="form-note">Your message is sent through Formspree and only used to reply to your enquiry.</p>
+          <p class="form-note">Your message is sent through Formspree and only used to reply to your enquiry.{legalReady && <> <a href={url('/privacy/')} style="color: var(--muted); text-decoration: underline">Privacy</a></>}</p>
         </div>
         <p class="wide form-status" role="status" aria-live="polite" data-status hidden></p>
       </form>
@@ -98,7 +103,7 @@ const formEndpoint = site.contactFormEndpoint?.trim();
     } catch {
       if (status) {
         status.hidden = false;
-        status.textContent = 'Sorry, the message could not be sent. Please try again, or message me on Instagram.';
+        status.textContent = 'Sorry, the message could not be sent. Please try again, or email hello@studiosarhan.com.';
       }
       button.disabled = false;
       button.textContent = 'Send enquiry';

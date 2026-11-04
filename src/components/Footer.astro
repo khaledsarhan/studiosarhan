@@ -1,6 +1,7 @@
 ---
 import site from '../data/site.json';
 import { url } from '../lib/url';
+import { legalReady } from '../lib/legal';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -13,5 +14,12 @@ const year = new Date().getFullYear();
     <a href={url('/about/#contact')}>Contact</a>
     <a href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener">Instagram</a>
   </nav>
+  <a class="footer-mail" href={`mailto:${site.email}`}>{site.email}</a>
+  {legalReady && (
+    <nav class="legal" aria-label="Legal">
+      <a href={url('/impressum/')}>Impressum</a>
+      <a href={url('/privacy/')}>Privacy</a>
+    </nav>
+  )}
   <small>© {year} {site.name}. All photographs by {site.photographer}.</small>
 </footer>
