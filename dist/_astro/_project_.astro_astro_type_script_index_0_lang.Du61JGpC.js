@@ -1,0 +1,1 @@
+import{r as s,s as o,t as r}from"./share.t2UXRHWW.js";document.querySelectorAll("[data-share]").forEach(t=>t.addEventListener("click",async()=>{const a=location.origin+location.pathname,e=s(await o(a,t.dataset.shareTitle||document.title),a);e&&r(e)}));

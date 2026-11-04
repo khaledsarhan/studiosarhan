@@ -1,0 +1,154 @@
+npm warn deprecated tsconfck@3.1.6: unmaintained
+
+added 294 packages in 2s
+
+> studiosarhan@1.0.0 build
+> astro build
+
+[2m14:56:01[22m [34m[content][39m Syncing content
+[2m14:56:01[22m [34m[content][39m Synced content
+[2m14:56:01[22m [34m[types][39m Generated [2m340ms[22m
+[2m14:56:01[22m [34m[build][39m output: [34m"static"[39m
+[2m14:56:01[22m [34m[build][39m mode: [34m"static"[39m
+[2m14:56:01[22m [34m[build][39m directory: [34m/home/runner/work/studiosarhan/studiosarhan/dist/[39m
+[2m14:56:01[22m [34m[build][39m Collecting build info...
+[2m14:56:01[22m [34m[build][39m [32m✓ Completed in 348ms.[39m
+[2m14:56:01[22m [34m[build][39m Building static entrypoints...
+[2m14:56:02[22m [34m[vite][39m [32m✓ built in 606ms[39m
+[2m14:56:02[22m [34m[build][39m [32m✓ Completed in 626ms.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m14:56:02[22m [34m[vite][39m transforming...
+[2m14:56:02[22m [34m[vite][39m [32m✓[39m 7 modules transformed.
+[2m14:56:02[22m [34m[vite][39m rendering chunks...
+[2m14:56:02[22m [34m[vite][39m computing gzip size...
+[2m14:56:02[22m [34m[vite][39m [2mdist/[22m[2m_astro/[22m[36m_project_.astro_astro_type_script_index_0_lang.Du61JGpC.js  [39m[1m[2m 0.25 kB[22m[1m[22m[2m │ gzip:  0.22 kB[22m
+[2m14:56:02[22m [34m[vite][39m [2mdist/[22m[2m_astro/[22m[36mshare.t2UXRHWW.js                                           [39m[1m[2m 0.65 kB[22m[1m[22m[2m │ gzip:  0.39 kB[22m
+[2m14:56:02[22m [34m[vite][39m [2mdist/[22m[2m_astro/[22m[36mLightbox.astro_astro_type_script_index_0_lang.DNoqgm47.js   [39m[1m[2m18.68 kB[22m[1m[22m[2m │ gzip:  6.31 kB[22m
+[2m14:56:02[22m [34m[vite][39m [2mdist/[22m[2m_astro/[22m[36mphotoswipe.esm.min.DfZfPaBn.js                              [39m[1m[2m54.22 kB[22m[1m[22m[2m │ gzip: 16.64 kB[22m
+[2m14:56:02[22m [34m[vite][39m [32m✓ built in 130ms[39m
+
+[42m[30m generating static routes [39m[49m
+[2m14:56:02[22m [32m▶[39m src/pages/404.astro
+[2m14:56:02[22m   [34m└─[39m [2m/404.html[22m [2m(+4ms)[22m 
+[2m14:56:02[22m [32m▶[39m src/pages/[project].astro
+[2m14:56:02[22m   [34m├─[39m [2m/quiet-metropolis/index.html[22m [2m(+6ms)[22m 
+[2m14:56:02[22m   [34m├─[39m [2m/stone-witnesses/index.html[22m [2m(+1ms)[22m 
+[2m14:56:02[22m   [34m├─[39m [2m/in-passing/index.html[22m [2m(+2ms)[22m 
+[2m14:56:02[22m   [34m└─[39m [2m/held-notes/index.html[22m [2m(+2ms)[22m 
+[2m14:56:02[22m [32m▶[39m src/pages/about.astro
+[2m14:56:02[22m   [34m└─[39m [2m/about/index.html[22m [2m(+1ms)[22m 
+[2m14:56:02[22m [32m▶[39m src/pages/impressum/[...rest].astro
+[2m14:56:02[22m   [34m└─[39m [2m/impressum/index.html[22m [2m(+1ms)[22m 
+[2m14:56:02[22m [32m▶[39m src/pages/index.astro
+[2m14:56:02[22m   [34m└─[39m [2m/index.html[22m [2m(+2ms)[22m 
+[2m14:56:02[22m [32m▶[39m src/pages/privacy/[...rest].astro
+[2m14:56:02[22m   [34m└─[39m [2m/privacy/index.html[22m [2m(+2ms)[22m 
+[2m14:56:02[22m [35mλ[39m src/pages/sitemap.xml.ts
+[2m14:56:02[22m   [34m└─[39m [2m/sitemap.xml[22m [2m(+1ms)[22m 
+[2m14:56:02[22m [32m✓ Completed in 36ms.
+[39m
+[42m[30m generating optimized images [39m[49m
+[2m14:56:02[22m   [32m▶[39m /_astro/blue-hour-skyline.DqMXxvFm_Z2ilNgr.webp [2m(before: 88kB, after: 98kB)[22m [2m(+321ms)[22m [2m(1/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/sun-through-cloud.DvB2icj9_1HXYvW.webp [2m(before: 63kB, after: 70kB)[22m [2m(+345ms)[22m [2m(2/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/blue-hour-skyline.DqMXxvFm_ZUQIJ.webp [2m(before: 88kB, after: 1kB)[22m [2m(+29ms)[22m [2m(3/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/sun-through-cloud.DvB2icj9_xg7mJ.webp [2m(before: 63kB, after: 1kB)[22m [2m(+26ms)[22m [2m(4/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_Z1Jg1Cv.webp [2m(before: 286kB, after: 331kB)[22m [2m(+400ms)[22m [2m(5/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_Z1QX4o9.webp [2m(before: 286kB, after: 2kB)[22m [2m(+52ms)[22m [2m(6/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/rooftops.DtfTx4Lo_1nbjIY.webp [2m(before: 502kB, after: 581kB)[22m [2m(+505ms)[22m [2m(7/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_bD4KN.jpg [2m(before: 286kB, after: 151kB)[22m [2m(+60ms)[22m [2m(8/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/rooftops.DtfTx4Lo_ZQAvqq.webp [2m(before: 502kB, after: 4kB)[22m [2m(+50ms)[22m [2m(9/99)[22m
+[2m14:56:02[22m   [32m▶[39m /_astro/blue-hour-skyline.DqMXxvFm_1USEJf.webp [2m(before: 88kB, after: 87kB)[22m [2m(+276ms)[22m [2m(10/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/sun-through-cloud.DvB2icj9_R2jHH.webp [2m(before: 63kB, after: 61kB)[22m [2m(+292ms)[22m [2m(11/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/blue-hour-skyline.DqMXxvFm_ZPUyDm.webp [2m(before: 88kB, after: 14kB)[22m [2m(+57ms)[22m [2m(12/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/sun-through-cloud.DvB2icj9_ZhIzwS.webp [2m(before: 63kB, after: 11kB)[22m [2m(+61ms)[22m [2m(13/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/blue-hour-skyline.DqMXxvFm_13C8jq.webp [2m(before: 88kB, after: 28kB)[22m [2m(+89ms)[22m [2m(14/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/sun-through-cloud.DvB2icj9_Z1T4SEz.webp [2m(before: 63kB, after: 21kB)[22m [2m(+89ms)[22m [2m(15/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_25mJiU.webp [2m(before: 286kB, after: 289kB)[22m [2m(+369ms)[22m [2m(16/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/blue-hour-skyline.DqMXxvFm_iMy1r.webp [2m(before: 88kB, after: 54kB)[22m [2m(+157ms)[22m [2m(17/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/sun-through-cloud.DvB2icj9_2qhEQn.webp [2m(before: 63kB, after: 39kB)[22m [2m(+171ms)[22m [2m(18/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_Z1inu6.webp [2m(before: 286kB, after: 40kB)[22m [2m(+106ms)[22m [2m(19/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/rooftops.DtfTx4Lo_ZdkI1A.webp [2m(before: 502kB, after: 515kB)[22m [2m(+477ms)[22m [2m(20/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_ZOWKzE.webp [2m(before: 286kB, after: 88kB)[22m [2m(+118ms)[22m [2m(21/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/rooftops.DtfTx4Lo_Z1zO93y.webp [2m(before: 502kB, after: 67kB)[22m [2m(+83ms)[22m [2m(22/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_1TLfmf.webp [2m(before: 31kB, after: 31kB)[22m [2m(+151ms)[22m [2m(23/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_Ztvigv.webp [2m(before: 31kB, after: 11kB)[22m [2m(+50ms)[22m [2m(24/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_Z1Igluy.webp [2m(before: 53kB, after: 48kB)[22m [2m(+280ms)[22m [2m(25/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/rooftops.DtfTx4Lo_aOC8H.webp [2m(before: 502kB, after: 152kB)[22m [2m(+126ms)[22m [2m(26/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_17NDJH.webp [2m(before: 53kB, after: 8kB)[22m [2m(+55ms)[22m [2m(27/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_1OsEa2.webp [2m(before: 31kB, after: 19kB)[22m [2m(+88ms)[22m [2m(28/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_Z1UAgGz.webp [2m(before: 286kB, after: 177kB)[22m [2m(+214ms)[22m [2m(29/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_1mWvM1.webp [2m(before: 53kB, after: 15kB)[22m [2m(+100ms)[22m [2m(30/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_1s6AD0.webp [2m(before: 31kB, after: 41kB)[22m [2m(+165ms)[22m [2m(31/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_G7cKC.webp [2m(before: 31kB, after: 1kB)[22m [2m(+27ms)[22m [2m(32/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/rooftops.DtfTx4Lo_Z1K8K74.webp [2m(before: 502kB, after: 300kB)[22m [2m(+239ms)[22m [2m(33/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_Z2gCGP6.jpg [2m(before: 31kB, after: 65kB)[22m [2m(+46ms)[22m [2m(34/99)[22m
+[2m14:56:03[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_1taMtb.webp [2m(before: 53kB, after: 28kB)[22m [2m(+175ms)[22m [2m(35/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_sJrF5.webp [2m(before: 31kB, after: 35kB)[22m [2m(+162ms)[22m [2m(36/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_Z1Vuu3y.webp [2m(before: 286kB, after: 275kB)[22m [2m(+360ms)[22m [2m(37/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_2pKwuN.webp [2m(before: 31kB, after: 12kB)[22m [2m(+43ms)[22m [2m(38/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_ZjeA2U.webp [2m(before: 286kB, after: 34kB)[22m [2m(+64ms)[22m [2m(39/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_nqQsR.webp [2m(before: 31kB, after: 23kB)[22m [2m(+91ms)[22m [2m(40/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/dog-and-car.DrHVQ1BZ_13wky2.webp [2m(before: 120kB, after: 136kB)[22m [2m(+326ms)[22m [2m(41/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_ZfyK9v.webp [2m(before: 53kB, after: 60kB)[22m [2m(+285ms)[22m [2m(42/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/dog-and-car.DrHVQ1BZ_LWAz7.webp [2m(before: 120kB, after: 1kB)[22m [2m(+34ms)[22m [2m(43/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_Z2aMhaz.webp [2m(before: 53kB, after: 1kB)[22m [2m(+17ms)[22m [2m(44/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_dm8QN.webp [2m(before: 286kB, after: 76kB)[22m [2m(+117ms)[22m [2m(45/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_Z15KCPd.jpg [2m(before: 53kB, after: 52kB)[22m [2m(+38ms)[22m [2m(46/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_Z1qBNn.webp [2m(before: 31kB, after: 33kB)[22m [2m(+155ms)[22m [2m(47/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_KIdLc.webp [2m(before: 31kB, after: 12kB)[22m [2m(+54ms)[22m [2m(48/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_ZRgmf7.webp [2m(before: 286kB, after: 149kB)[22m [2m(+211ms)[22m [2m(49/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/gull-in-flight.DnueVo8Q_Z6Jd0A.webp [2m(before: 31kB, after: 21kB)[22m [2m(+80ms)[22m [2m(50/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/dog-and-car.DrHVQ1BZ_c1HXF.webp [2m(before: 120kB, after: 118kB)[22m [2m(+315ms)[22m [2m(51/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_ZheXh0.webp [2m(before: 53kB, after: 53kB)[22m [2m(+289ms)[22m [2m(52/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/dog-and-car.DrHVQ1BZ_25AG7y.webp [2m(before: 120kB, after: 22kB)[22m [2m(+63ms)[22m [2m(53/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_29GcG2.webp [2m(before: 53kB, after: 10kB)[22m [2m(+53ms)[22m [2m(54/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_Z2gdeNm.webp [2m(before: 53kB, after: 18kB)[22m [2m(+95ms)[22m [2m(55/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/dog-and-car.DrHVQ1BZ_Z1MeFYh.webp [2m(before: 120kB, after: 43kB)[22m [2m(+100ms)[22m [2m(56/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_qlFqF.webp [2m(before: 93kB, after: 85kB)[22m [2m(+293ms)[22m [2m(57/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_Z150vwN.webp [2m(before: 286kB, after: 280kB)[22m [2m(+362ms)[22m [2m(58/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_Z2vlnW6.webp [2m(before: 93kB, after: 16kB)[22m [2m(+55ms)[22m [2m(59/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_Z29YX7c.webp [2m(before: 53kB, after: 33kB)[22m [2m(+155ms)[22m [2m(60/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/dog-and-car.DrHVQ1BZ_ZdCO9a.webp [2m(before: 120kB, after: 78kB)[22m [2m(+170ms)[22m [2m(61/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_ZrxGhh.webp [2m(before: 286kB, after: 37kB)[22m [2m(+67ms)[22m [2m(62/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_ZXQXjB.webp [2m(before: 93kB, after: 29kB)[22m [2m(+95ms)[22m [2m(63/99)[22m
+[2m14:56:04[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_14Q7ny.webp [2m(before: 286kB, after: 82kB)[22m [2m(+115ms)[22m [2m(64/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_1UziYl.webp [2m(before: 93kB, after: 51kB)[22m [2m(+170ms)[22m [2m(65/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_2f0YyI.webp [2m(before: 53kB, after: 50kB)[22m [2m(+264ms)[22m [2m(66/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-on-sheet-music.ButGCA8i_20jcz1.webp [2m(before: 61kB, after: 68kB)[22m [2m(+279ms)[22m [2m(67/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_24EmaB.webp [2m(before: 53kB, after: 9kB)[22m [2m(+49ms)[22m [2m(68/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-on-sheet-music.ButGCA8i_Z1O94Iu.webp [2m(before: 61kB, after: 1kB)[22m [2m(+27ms)[22m [2m(69/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/coastal-town.wHAYPJj2_ZLnIm.webp [2m(before: 286kB, after: 162kB)[22m [2m(+208ms)[22m [2m(70/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_g2I2m.webp [2m(before: 53kB, after: 17kB)[22m [2m(+97ms)[22m [2m(71/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_1yuXQg.webp [2m(before: 93kB, after: 107kB)[22m [2m(+334ms)[22m [2m(72/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/statue-and-angel.Ctp0zciC_mfYIw.webp [2m(before: 53kB, after: 30kB)[22m [2m(+162ms)[22m [2m(73/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_Z1QlS0F.webp [2m(before: 93kB, after: 1kB)[22m [2m(+28ms)[22m [2m(74/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-on-sheet-music.ButGCA8i_YGGOD.webp [2m(before: 61kB, after: 60kB)[22m [2m(+279ms)[22m [2m(75/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_Z1HJmFr.jpg [2m(before: 93kB, after: 80kB)[22m [2m(+50ms)[22m [2m(76/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-on-sheet-music.ButGCA8i_Z2i5Ym4.webp [2m(before: 61kB, after: 11kB)[22m [2m(+60ms)[22m [2m(77/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-bridge.CSVWPAzy_gqxeo.webp [2m(before: 50kB, after: 56kB)[22m [2m(+314ms)[22m [2m(78/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-bridge.CSVWPAzy_ZTR7Tc.webp [2m(before: 50kB, after: 1kB)[22m [2m(+41ms)[22m [2m(79/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-on-sheet-music.ButGCA8i_Z2o2EM.webp [2m(before: 61kB, after: 21kB)[22m [2m(+112ms)[22m [2m(80/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-and-bow-window.BrwFJeEy_Z2tyNqe.webp [2m(before: 94kB, after: 100kB)[22m [2m(+285ms)[22m [2m(81/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-and-bow-window.BrwFJeEy_1OPbS0.webp [2m(before: 94kB, after: 2kB)[22m [2m(+51ms)[22m [2m(82/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-on-sheet-music.ButGCA8i_ZjleFg.webp [2m(before: 61kB, after: 38kB)[22m [2m(+202ms)[22m [2m(83/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-bridge.CSVWPAzy_22y4A7.webp [2m(before: 50kB, after: 50kB)[22m [2m(+274ms)[22m [2m(84/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_Z1JyCAW.webp [2m(before: 93kB, after: 93kB)[22m [2m(+345ms)[22m [2m(85/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-bridge.CSVWPAzy_2s0AvQ.webp [2m(before: 50kB, after: 9kB)[22m [2m(+52ms)[22m [2m(86/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_1vvPpn.webp [2m(before: 93kB, after: 19kB)[22m [2m(+69ms)[22m [2m(87/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-bridge.CSVWPAzy_CkpOP.webp [2m(before: 50kB, after: 17kB)[22m [2m(+90ms)[22m [2m(88/99)[22m
+[2m14:56:05[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_1UoQrH.webp [2m(before: 93kB, after: 34kB)[22m [2m(+99ms)[22m [2m(89/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-and-bow-window.BrwFJeEy_1A0ODk.webp [2m(before: 94kB, after: 88kB)[22m [2m(+261ms)[22m [2m(90/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-and-bow-window.BrwFJeEy_1lShfq.webp [2m(before: 94kB, after: 18kB)[22m [2m(+51ms)[22m [2m(91/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-bridge.CSVWPAzy_Z1xpqF9.webp [2m(before: 50kB, after: 31kB)[22m [2m(+153ms)[22m [2m(92/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-and-bow-window.BrwFJeEy_Z25SItq.webp [2m(before: 94kB, after: 34kB)[22m [2m(+92ms)[22m [2m(93/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_Zfl03h.webp [2m(before: 93kB, after: 60kB)[22m [2m(+156ms)[22m [2m(94/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-and-bow-window.BrwFJeEy_Z2mPUtT.webp [2m(before: 94kB, after: 58kB)[22m [2m(+141ms)[22m [2m(95/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_1FActn.webp [2m(before: 93kB, after: 89kB)[22m [2m(+251ms)[22m [2m(96/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_Z1DQpql.webp [2m(before: 93kB, after: 17kB)[22m [2m(+33ms)[22m [2m(97/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_gmxI6.webp [2m(before: 93kB, after: 31kB)[22m [2m(+74ms)[22m [2m(98/99)[22m
+[2m14:56:06[22m   [32m▶[39m /_astro/violin-f-hole.BoK0plnb_Z1TniLS.webp [2m(before: 93kB, after: 56kB)[22m [2m(+119ms)[22m [2m(99/99)[22m
+[2m14:56:06[22m [32m✓ Completed in 4.27s.
+[39m
+[2m14:56:06[22m [34m[build][39m 9 page(s) built in [1m5.42s[22m
+[2m14:56:06[22m [34m[build][39m [1mComplete![22m
