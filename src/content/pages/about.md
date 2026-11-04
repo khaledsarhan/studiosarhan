@@ -1,8 +1,8 @@
 ---
 title: About – Studio Sarhan
-description: About photographer Khaled Sarhan and Studio Sarhan, and how to get in touch about commissions.
+description: About photographer Khaled Sarhan and Studio Sarhan, and how to get in touch.
 heading: Khaled Sarhan
-summary: Khaled Sarhan is the photographer behind Studio Sarhan, working on personal series about cities, motion, stone and sound, mostly in black and white, and taking on commissions.
+summary: Khaled Sarhan is the photographer behind Studio Sarhan, working on personal series about cities, motion, stone and sound, mostly in black and white.
 services:
   - title: Portraits
     text: Portraits of people and the places they belong to. Get in touch for availability and rates.
@@ -13,5 +13,3 @@ services:
 ---
 
 Khaled Sarhan is the photographer behind Studio Sarhan. His personal series look at cities from a distance, at small moments of life in motion, at stone figures under restless skies and at a violin at rest, mostly in black and white.
-
-Alongside these series, Studio Sarhan takes on portrait, event and commercial commissions.

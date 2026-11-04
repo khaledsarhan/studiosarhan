@@ -3,31 +3,40 @@
 // Published only once name and address are filled in, in src/data/legal.json.
 import Base from '../../layouts/Base.astro';
 import site from '../../data/site.json';
-import { legal, legalReady } from '../../lib/legal';
+import { legal, legalReady, isBusiness, legalLocation } from '../../lib/legal';
 import { url } from '../../lib/url';
 
 export function getStaticPaths() {
   return legalReady ? [{ params: { rest: undefined } }] : [];
 }
-const rows: [string, string | undefined][] = [
-  ['Medieninhaber & Betreiber / Owner', legal.name],
-  ['Anschrift / Address', legal.address],
-  ['Unternehmensgegenstand / Business', legal.businessActivity],
-  ['Kontakt / Contact', [`E-Mail: ${site.email}`, legal.phone && `Telefon: ${legal.phone}`, 'Kontaktformular: studiosarhan.com/about/#contact'].filter(Boolean).join('\n')],
-  ['UID-Nummer / VAT ID', legal.uid],
-  ['Mitgliedschaft / Membership', legal.chamber],
-  ['Gewerbebehörde / Authority', legal.authority],
-  ['Berufsbezeichnung / Profession', legal.profession],
-];
----
+const contact = [`E-Mail: ${site.email}`, legal.phone && `Telefon: ${legal.phone}`, 'Kontaktformular: studiosarhan.com/about/#contact'].filter(Boolean).join('\n');
+// Personal portfolio: Offenlegung with name and town only. Business: full Impressum.
+const rows: [string, string | undefined][] = isBusiness
+  ? [
+      ['Medieninhaber & Betreiber / Owner', legal.name],
+      ['Anschrift / Address', legal.address],
+      ['Unternehmensgegenstand / Business', legal.businessActivity],
+      ['Kontakt / Contact', contact],
+      ['UID-Nummer / VAT ID', legal.uid],
+      ['Mitgliedschaft / Membership', legal.chamber],
+      ['Gewerbebehörde / Authority', legal.authority],
+      ['Berufsbezeichnung / Profession', legal.profession],
+    ]
+  : [
+      ['Medieninhaber / Owner', legal.name],
+      ['Wohnort / Place of residence', legalLocation],
+      ['Kontakt / Contact', contact],
+      ['Inhalt / Content', 'Persönliches Fotografie-Portfolio / Personal photography portfolio'],
+    ];
+------
 <Base title={`Impressum – ${site.name}`} description={`Impressum (imprint) of ${site.name}.`}>
   <section class="wrap legal-page">
     <span class="kicker">Impressum</span>
     <h1>Impressum / Imprint</h1>
-    <p>Informationen gemäß § 5 ECG, § 63 GewO und Offenlegung gemäß § 25 MedienG.</p>
+    <p>{isBusiness ? 'Informationen gemäß § 5 ECG, § 63 GewO und Offenlegung gemäß § 25 MedienG.' : 'Offenlegung gemäß § 25 MedienG.'}</p>
     <dl>
       {rows.filter(([, v]) => v && v.trim()).map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
-      {legal.tradeRules && (
+      {isBusiness && legal.tradeRules && (
         <>
           <dt>Rechtsvorschriften / Regulations</dt>
           <dd>{legal.tradeRules}, abrufbar unter <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a></dd>

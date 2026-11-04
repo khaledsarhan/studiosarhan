@@ -25,7 +25,7 @@ const formEndpoint = site.contactFormEndpoint?.trim();
     </div>
   </section>
 
-  {about.services.length > 0 && (
+  {site.offerCommissions && about.services.length > 0 && (
     <section class="band">
       <div class="wrap section">
         <div class="section-head"><h2>Commissions</h2></div>
@@ -45,8 +45,10 @@ const formEndpoint = site.contactFormEndpoint?.trim();
   <section id="contact" class="wrap section contact">
     <div class="intro">
       <span class="kicker">Contact</span>
-      <h2>Let's make something</h2>
-      <p>Tell me what you have in mind and I'll reply with availability and next steps. Use the form, or write to me directly.</p>
+      <h2>{site.offerCommissions ? "Let's make something" : 'Get in touch'}</h2>
+      {site.offerCommissions
+        ? <p>Tell me what you have in mind and I'll reply with availability and next steps. Use the form, or write to me directly.</p>
+        : <p>Questions about a photograph, prints, a collaboration, or just want to say hello? Use the form, or write to me directly.</p>}
       <div class="contact-links">
         <a class="ig-link" href={`mailto:${site.email}`}><MailIcon /> {site.email}</a>
         <a class="ig-link" href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener"><InstagramIcon /> @{site.instagram} on Instagram</a>
@@ -54,17 +56,30 @@ const formEndpoint = site.contactFormEndpoint?.trim();
     </div>
     {formEndpoint && (
       <form class="enquiry" action={formEndpoint} method="POST" data-enquiry>
-        <input type="hidden" name="_subject" value="New enquiry from studiosarhan.com" />
+        <input type="hidden" name="_subject" value={site.offerCommissions ? 'New enquiry from studiosarhan.com' : 'New message from studiosarhan.com'} />
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <label class="field">Name<input type="text" name="name" autocomplete="name" required /></label>
         <label class="field">Email<input type="email" name="email" autocomplete="email" required /></label>
-        <label class="field">Type of shoot
-          <select name="type">
-            {about.services.map((s) => <option>{s.title}</option>)}
-            <option>Something else</option>
-          </select>
-        </label>
-        <label class="field">Preferred date<input type="date" name="date" /></label>
+        {site.offerCommissions ? (
+          <>
+            <label class="field">Type of shoot
+              <select name="type">
+                {about.services.map((s) => <option>{s.title}</option>)}
+                <option>Something else</option>
+              </select>
+            </label>
+            <label class="field">Preferred date<input type="date" name="date" /></label>
+          </>
+        ) : (
+          <label class="field wide">Subject
+            <select name="subject">
+              <option>General question</option>
+              <option>Prints</option>
+              <option>Collaboration</option>
+              <option>Something else</option>
+            </select>
+          </label>
+        )}
         <label class="field wide">Message<textarea name="message" rows="5" required></textarea></label>
         <div class="wide form-foot">
           <button type="submit" class="btn solid">Send enquiry</button>

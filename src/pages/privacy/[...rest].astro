@@ -2,7 +2,7 @@
 // Privacy policy (GDPR / DSGVO). Published together with the Impressum.
 import Base from '../../layouts/Base.astro';
 import site from '../../data/site.json';
-import { legal, legalReady } from '../../lib/legal';
+import { legal, legalReady, legalLocation } from '../../lib/legal';
 import { url } from '../../lib/url';
 
 export function getStaticPaths() {
@@ -16,7 +16,7 @@ export function getStaticPaths() {
     <p>This page explains which personal data is processed when you visit this website or get in touch, and what rights you have under the EU General Data Protection Regulation (GDPR / DSGVO).</p>
 
     <h2>Who is responsible</h2>
-    <p><span style="white-space: pre-line">{`${legal.name}\n${legal.address}`}</span><br />
+    <p><span style="white-space: pre-line">{`${legal.name}\n${legalLocation}`}</span><br />
       Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
 
     <h2>Visiting this website</h2>
@@ -24,13 +24,13 @@ export function getStaticPaths() {
     <p>This website does not use cookies, analytics or tracking tools. Fonts are loaded from this website itself, not from third-party font services.</p>
 
     <h2>Contact form</h2>
-    <p>If you use the contact form, the details you enter (name, email address, type of shoot, preferred date and message) are sent through Formspree, a service of Formspree, Inc. (USA), and forwarded to us by email. We use these details only to answer your enquiry and, if it leads to a commission, to prepare and carry it out. The legal basis is Art. 6(1)(b) GDPR (steps prior to entering into a contract) and our legitimate interest in answering enquiries (Art. 6(1)(f) GDPR). Data may be transferred to the USA on the basis of safeguards recognised under the GDPR. More information: <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree Privacy Policy</a>.</p>
+    <p>If you use the contact form, the details you enter (such as your name, email address and message) are sent through Formspree, a service of Formspree, Inc. (USA), and forwarded to us by email. We use these details only to answer your message{site.offerCommissions && ' and, if it leads to a commission, to prepare and carry it out'}. The legal basis is our legitimate interest in answering messages (Art. 6(1)(f) GDPR){site.offerCommissions && ' and, for enquiries about commissions, Art. 6(1)(b) GDPR (steps prior to entering into a contract)'}. Data may be transferred to the USA on the basis of safeguards recognised under the GDPR. More information: <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree Privacy Policy</a>.</p>
 
     <h2>Email</h2>
     <p>If you write to {site.email}, your message and contact details are stored in our mailbox, which is provided by Zoho. We use them only to deal with your request.</p>
 
     <h2>How long data is kept</h2>
-    <p>Enquiries are deleted once they have been dealt with, unless they lead to a commission or statutory retention periods (for example under Austrian tax law) require us to keep them longer.</p>
+    <p>Messages are deleted once they have been dealt with, unless there is a reason to keep them longer, such as an ongoing conversation or a legal retention period.</p>
 
     <h2>Instagram</h2>
     <p>This website only links to our Instagram profile. No data is sent to Instagram (Meta Platforms) unless you click the link; after that, Instagram's own privacy policy applies.</p>
