@@ -27,7 +27,9 @@ const slides = await Promise.all(
   data.photos.map(async (ph) => {
     const full = await getImage({ src: ph.image, width: Math.min(ph.image.width, 2400), format: 'webp', quality: 86 });
     const thumb = await getImage({ src: ph.image, width: 160, format: 'webp', quality: 70 });
-    return { src: full.src, thumb: thumb.src, alt: ph.alt, caption: [ph.title, ph.caption].filter(Boolean).join(' · ') };
+    const width = Number(full.attributes.width) || ph.image.width;
+    const height = Number(full.attributes.height) || Math.round((ph.image.height * width) / ph.image.width);
+    return { src: full.src, width, height, thumb: thumb.src, alt: ph.alt, caption: [ph.title, ph.caption].filter(Boolean).join(' · ') };
   }),
 );
 const share = await getImage({ src: data.cover, width: 1200, format: 'jpg', quality: 80 });
