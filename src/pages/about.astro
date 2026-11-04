@@ -50,7 +50,7 @@ const formEndpoint = site.contactFormEndpoint?.trim();
     {formEndpoint && (
       <form class="enquiry" action={formEndpoint} method="POST" data-enquiry>
         <input type="hidden" name="_subject" value="New enquiry from studiosarhan.com" />
-        <label class="visually-hidden" aria-hidden="true">Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <label class="field">Name<input type="text" name="name" autocomplete="name" required /></label>
         <label class="field">Email<input type="email" name="email" autocomplete="email" required /></label>
         <label class="field">Type of shoot
