@@ -48,17 +48,19 @@ const showNext = total > 1 && next.id !== project.id;
       </div>
       <div class="about">
         <div class="prose"><Content /></div>
+        <div class="facts-row">
         <dl class="facts">
           <div><dt>Photographs</dt><dd>{data.photos.length}</dd></div>
           {data.year && <div><dt>Year</dt><dd>{data.year}</dd></div>}
           {data.place && <div><dt>Place</dt><dd>{data.place}</dd></div>}
         </dl>
+          <button type="button" class="btn ghost share-btn" data-share data-share-title={`${data.title} – ${site.name}`}><ShareIcon /> Share series</button>
+        </div>
         <div class="project-actions">
           <button type="button" class="btn" data-lightbox-start>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"></path></svg>
             View full screen
           </button>
-          <button type="button" class="btn ghost share-btn" data-share data-share-title={`${data.title} – ${site.name}`}><ShareIcon /> Share series</button>
         </div>
       </div>
     </section>
