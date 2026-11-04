@@ -161,9 +161,49 @@ content:
       - name: photographer
         label: Photographer
         type: string
+      - name: email
+        label: Public email address
+        type: string
       - name: instagram
         label: Instagram handle (without @)
         type: string
       - name: contactFormEndpoint
         label: Contact form address (from Formspree or similar; empty hides the form)
+        type: string
+
+  - name: legal
+    label: Impressum & privacy
+    type: file
+    path: src/data/legal.json
+    format: json
+    fields:
+      - name: name
+        label: Full name (Medieninhaber)
+        type: string
+      - name: address
+        label: Business address (street, postcode, city, country; one per line)
+        type: text
+      - name: phone
+        label: Phone (optional)
+        type: string
+      - name: businessActivity
+        label: Unternehmensgegenstand (what the business does)
+        type: string
+      - name: uid
+        label: UID / VAT number (only if you have one)
+        type: string
+      - name: chamber
+        label: WKO membership (e.g. Wirtschaftskammer Wien, Landesinnung ...)
+        type: string
+      - name: authority
+        label: Gewerbebehörde (trade authority, if you have a trade licence)
+        type: string
+      - name: tradeRules
+        label: Applicable regulations
+        type: string
+      - name: profession
+        label: Berufsbezeichnung (only if you hold a protected title)
+        type: string
+      - name: privacyUpdated
+        label: Privacy policy last updated
         type: string

@@ -1,0 +1,41 @@
+---
+// Impressum (imprint) required for Austrian business websites (§ 5 ECG, § 63 GewO, § 25 MedienG).
+// Published only once name and address are filled in, in src/data/legal.json.
+import Base from '../../layouts/Base.astro';
+import site from '../../data/site.json';
+import { legal, legalReady } from '../../lib/legal';
+import { url } from '../../lib/url';
+
+export function getStaticPaths() {
+  return legalReady ? [{ params: { rest: undefined } }] : [];
+}
+const rows: [string, string | undefined][] = [
+  ['Medieninhaber & Betreiber / Owner', legal.name],
+  ['Anschrift / Address', legal.address],
+  ['Unternehmensgegenstand / Business', legal.businessActivity],
+  ['Kontakt / Contact', [`E-Mail: ${site.email}`, legal.phone && `Telefon: ${legal.phone}`, 'Kontaktformular: studiosarhan.com/about/#contact'].filter(Boolean).join('\n')],
+  ['UID-Nummer / VAT ID', legal.uid],
+  ['Mitgliedschaft / Membership', legal.chamber],
+  ['Gewerbebehörde / Authority', legal.authority],
+  ['Berufsbezeichnung / Profession', legal.profession],
+];
+---
+<Base title={`Impressum – ${site.name}`} description={`Impressum (imprint) of ${site.name}.`}>
+  <section class="wrap legal-page">
+    <span class="kicker">Impressum</span>
+    <h1>Impressum / Imprint</h1>
+    <p>Informationen gemäß § 5 ECG, § 63 GewO und Offenlegung gemäß § 25 MedienG.</p>
+    <dl>
+      {rows.filter(([, v]) => v && v.trim()).map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+      {legal.tradeRules && (
+        <>
+          <dt>Rechtsvorschriften / Regulations</dt>
+          <dd>{legal.tradeRules}, abrufbar unter <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a></dd>
+        </>
+      )}
+    </dl>
+    <h2>Urheberrecht / Copyright</h2>
+    <p>Alle Fotografien auf dieser Website sind urheberrechtlich geschützt und dürfen ohne schriftliche Zustimmung von {legal.name || site.photographer} nicht verwendet werden. All photographs on this website are protected by copyright and may not be used without written permission.</p>
+    <p><a href={url('/privacy/')}>Datenschutzerklärung / Privacy policy</a></p>
+  </section>
+</Base>
