@@ -204,7 +204,8 @@ p { margin: 0; }
 .ig-link { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; font-size: 15px; }
 .ig-link svg, .nav .ig svg { width: 20px; height: 20px; }
 .contact-links { display: flex; flex-direction: column; gap: 4px; }
-.footer-mail { color: var(--gold); font-size: 14px; letter-spacing: 0.06em; padding-block: 8px; }
+.site-footer small a { color: inherit; text-decoration: underline; text-decoration-color: #444; text-underline-offset: 3px; }
+.site-footer small a:hover { color: var(--gold); }
 .site-footer .legal { gap: 4px 24px; font-size: 12px; color: var(--dim); }
 .legal-page { max-width: 760px; padding-block: clamp(64px, 9vw, 110px); display: flex; flex-direction: column; gap: 28px; }
 .legal-page h1 { font-size: clamp(34px, 4vw, 52px); }

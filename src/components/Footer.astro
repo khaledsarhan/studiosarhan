@@ -14,12 +14,11 @@ const year = new Date().getFullYear();
     <a href={url('/about/#contact')}>Contact</a>
     <a href={`https://www.instagram.com/${site.instagram}/`} target="_blank" rel="noopener">Instagram</a>
   </nav>
-  <a class="footer-mail" href={`mailto:${site.email}`}>{site.email}</a>
   {legalReady && (
     <nav class="legal" aria-label="Legal">
       <a href={url('/impressum/')}>Impressum</a>
       <a href={url('/privacy/')}>Privacy</a>
     </nav>
   )}
-  <small>© {year} {site.name}. All photographs by {site.photographer}.</small>
+  <small>© {year} {site.name}. All photographs by {site.photographer}. · <a href={`mailto:${site.email}`}>{site.email}</a></small>
 </footer>
