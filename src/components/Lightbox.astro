@@ -15,6 +15,7 @@ const { title, slides } = Astro.props;
 
 <script>
   import PhotoSwipeLightbox from '../vendor/photoswipe/photoswipe-lightbox.esm.min.js';
+  import { shareLink, toast, resultMessage } from '../scripts/share';
 
   type Slide = { src: string; width: number; height: number; thumb: string; alt: string; caption: string };
   const holder = document.querySelector<HTMLElement>('[data-viewer]');
@@ -69,6 +70,24 @@ const { title, slides } = Astro.props;
         isButton: false,
         appendTo: 'bar',
         onInit: (el: HTMLElement) => { el.textContent = title; },
+      });
+
+      // Share the photo being viewed (its own link, e.g. /quiet-metropolis/#photo-3)
+      pswp.ui.registerElement({
+        name: 'share',
+        order: 9,
+        isButton: true,
+        title: 'Share this photograph',
+        ariaLabel: 'Share this photograph',
+        appendTo: 'bar',
+        html: '<svg class="pswp__icn" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/></svg>',
+        onClick: async () => {
+          const n = pswp.currIndex + 1;
+          const url = `${location.origin}${location.pathname}#photo-${n}`;
+          const r = await shareLink(url, `${title} – photograph ${n} – Studio Sarhan`);
+          const msg = resultMessage(r, url);
+          if (msg) toast(msg, pswp.element);
+        },
       });
 
       // Caption under the photo

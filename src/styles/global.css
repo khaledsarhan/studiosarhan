@@ -175,6 +175,12 @@ p { margin: 0; }
   .pswp__caption { bottom: 62px; }
 }
 
+.bar-right { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.share-btn svg { width: 18px; height: 18px; }
+.share-toast { position: fixed; left: 50%; bottom: 28px; z-index: 100001; transform: translate(-50%, 12px); opacity: 0; max-width: calc(100vw - 32px); padding: 12px 20px; background: #111; border: 1px solid var(--gold); color: #fff; font: 400 14px var(--sans); letter-spacing: 0.04em; overflow-wrap: anywhere; transition: opacity .25s, transform .25s; pointer-events: none; }
+.share-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.pswp .share-toast { position: absolute; bottom: 130px; }
+
 /* ---------- about ---------- */
 .frame { position: relative; padding: 36px; }
 .frame i { position: absolute; width: 44px; height: 44px; border: 0 solid #fff; }
