@@ -3,6 +3,12 @@
 Portfolio site for Studio Sarhan, live at [studiosarhan.com](https://studiosarhan.com).
 Built with [Astro](https://astro.build) and published on GitHub Pages.
 
+## Copyright
+
+All photographs © Khaled Sarhan / Studio Sarhan. All rights reserved.
+They may not be copied, reused or published without written permission.
+The code is shared for reference only; this is not an open-source licence for the photos or the logo.
+
 ## Adding work
 
 The easy way: sign in at [Pages CMS](https://app.pagescms.org) with GitHub, open this
