@@ -9,7 +9,7 @@ coverAlt: A stone statue holding a carved book, with an angel statue behind it
   and heavy clouds above
 coverPosition: 55% 50%
 photos:
-  - image: ../../assets/photos/stone-witnesses/statue-and-angel.webp
+  - image: ../../assets/photos/IMG_8801.jpg
     alt: A stone statue holding a carved book, with an angel statue behind it and
       heavy clouds above
     size: auto
