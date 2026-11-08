@@ -6,10 +6,10 @@ cover: ../../assets/photos/held-notes/violin-on-sheet-music.webp
 coverAlt: Front of a violin with strings and bridge on scattered sheet music
 coverPosition: 50% 50%
 photos:
-  - image: ../../assets/photos/held-notes/violin-f-hole.webp
-    alt: Violin f-hole and edge resting on sheet music
   - image: ../../assets/photos/held-notes/violin-on-sheet-music.webp
     alt: Front of a violin with strings and bridge on scattered sheet music
+  - image: ../../assets/photos/held-notes/violin-f-hole.webp
+    alt: Violin f-hole and edge resting on sheet music
   - image: ../../assets/photos/held-notes/violin-bridge.webp
     alt: Close view of violin strings crossing the bridge
   - image: ../../assets/photos/held-notes/violin-and-bow-window.webp
