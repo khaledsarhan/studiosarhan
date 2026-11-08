@@ -2,8 +2,8 @@
 title: Held Notes
 summary: A violin at rest, seen up close among its strings, curves and sheet music.
 order: 4
-cover: ../../assets/photos/held-notes/violin-f-hole.webp
-coverAlt: Violin f-hole and edge resting on sheet music
+cover: ../../assets/photos/held-notes/violin-on-sheet-music.webp
+coverAlt: Front of a violin with strings and bridge on scattered sheet music
 coverPosition: 50% 50%
 photos:
   - image: ../../assets/photos/held-notes/violin-f-hole.webp
