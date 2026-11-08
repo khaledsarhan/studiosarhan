@@ -1,7 +1,7 @@
 ---
 title: Quiet Metropolis
 summary: Cities seen from a distance, where rooftops, water and sky share the frame.
-order: 1
+order: 5
 draft: false
 cover: ../../assets/photos/quiet-metropolis/coastal-town.webp
 coverAlt: City skyline and an elevated train bridge reflected in still water at blue hour

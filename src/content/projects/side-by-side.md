@@ -1,7 +1,7 @@
 ---
 title: Side by Side
 summary: Things that share a wall, a street or a frame, and look nothing alike.
-order: 5
+order: 3
 draft: false
 cover: ../../assets/photos/side-by-side/church-and-house.webp
 coverAlt: A baroque church entrance topped by an angel statue beside a plain
