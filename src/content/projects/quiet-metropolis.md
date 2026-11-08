@@ -3,9 +3,10 @@ title: Quiet Metropolis
 summary: Cities seen from a distance, where rooftops, water and sky share the frame.
 order: 5
 draft: false
-cover: ../../assets/photos/quiet-metropolis/coastal-town.webp
-coverAlt: City skyline and an elevated train bridge reflected in still water at blue hour
-coverPosition: 50% 50%
+cover: ../../assets/photos/quiet-metropolis/contrails-over-city.webp
+coverAlt: Black and white sky crossed by contrails converging toward a low sun above
+  a dark city horizon
+coverPosition: 30% 50%
 photos:
   - image: ../../assets/photos/quiet-metropolis/rooftops.webp
     alt: Black and white view over dense rooftops toward distant hills
