@@ -27,4 +27,4 @@ photos:
       hour
     size: auto
 ---
-A series about the calm that sits inside the city. Shot from hillsides, waterfronts and open ground, these frames step back from the noise to look at the places we live as part of a larger landscape: dense rooftops spreading to the hills, a coastal town facing the sea, a skyline settling into blue-hour reflections, and a sun breaking through heavy cloud. Mostly in black and white, with a single deep-blue frame, the series is about light, distance and stillness.
+A series about the calm that sits inside the city. Shot from hillsides, rooftops and waterfronts, these frames step back from the noise to see the places we live as part of a larger landscape, small beneath wide skies, weather and changing light. It is about distance and stillness, and the moments when a city seems to hold its breath.

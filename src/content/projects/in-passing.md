@@ -20,4 +20,4 @@ photos:
     alt: A dog resting on a gravel road while a car streaks past
     size: auto
 ---
-Everyday life moves through and rests inside the places we build. A gull cuts across a blurred wall of apartment blocks; a dog lies in the dust while a car blurs by; gulls scatter around a van passing by the sea. Using motion blur and selective color, the series sets the still against the fast, and asks which of them we really notice.
+Everyday life moves through and rests inside the places we build. Using motion blur and selective color, the series sets the still against the fast: a living moment held sharp while the world around it rushes on. It asks which of the two we really notice.
