@@ -1,6 +1,6 @@
 ---
 title: Small and Still
-summary: A single figure at rest in spaces built for crowds and grandeur.
+summary: A single figure at rest in a space much larger than themselves.
 order: 6
 draft: false
 cover: ../../assets/photos/small-and-still/museum-and-bench.webp
@@ -17,4 +17,4 @@ photos:
       granite bench in a wide baroque square under heavy clouds
     size: auto
 ---
-One person, small and still, in spaces built for crowds and grandeur. Grand facades, wide squares and heavy skies fill the frame, while a single figure sits or waits, seen from a distance and often from behind. The series is about scale and solitude, and the quiet of someone who has stopped while the city stays monumental around them.
+One person, small and still, in a space much larger than themselves. The series is about scale and solitude, and the quiet of someone who has stopped while the world around them goes on.
