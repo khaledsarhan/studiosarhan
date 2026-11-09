@@ -16,8 +16,6 @@ photos:
     alt: Close view of violin strings crossing the bridge
   - image: ../../assets/photos/held-notes/violin-and-bow-window.webp
     alt: A violin and bow in front of a window overlooking the city
-  - image: ../../assets/photos/held-notes/violin-scroll-in-case.webp
-    alt: The neck and pale scroll of a violin lying in a dark velvet case
   - image: ../../assets/photos/held-notes/hand-on-violin-neck.webp
     alt: A hand holding the neck of a violin against a pale sky, strings running
       toward it
