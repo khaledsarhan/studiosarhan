@@ -18,10 +18,6 @@ photos:
   - image: ../../assets/photos/quiet-metropolis/coastal-town.webp
     alt: Black and white view of a hillside town facing a calm sea
     size: auto
-  - image: ../../assets/photos/quiet-metropolis/sun-through-cloud.webp
-    alt: Black and white sky with the sun breaking through heavy cloud above a dark
-      horizon
-    size: auto
   - image: ../../assets/photos/quiet-metropolis/blue-hour-skyline.webp
     alt: City skyline and an elevated train bridge reflected in still water at blue
       hour
