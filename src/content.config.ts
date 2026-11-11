@@ -45,6 +45,8 @@ const pages = defineCollection({
       title: z.string(),
       description: z.string().optional(),
       heading: z.string().optional(),
+      // Small gold line above the heading (home page).
+      eyebrow: z.string().optional(),
       intro: z.string().optional(),
       heroImage: image().optional(),
       heroAlt: z.string().optional(),

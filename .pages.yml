@@ -99,6 +99,9 @@ content:
       - name: description
         label: Google description
         type: text
+      - name: eyebrow
+        label: Small gold line above the heading
+        type: string
       - name: heading
         label: Big heading
         type: string
