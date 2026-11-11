@@ -3,10 +3,10 @@ title: In Passing
 summary: Small moments of life, caught between the speed of the places around them.
 order: 1
 draft: false
-cover: ../../assets/photos/in-passing/gull-in-flight.webp
-coverAlt: A gull in flight, in color, against a motion-blurred black and white
-  apartment block
-coverPosition: 70% 50%
+cover: ../../assets/photos/in-passing/gulls-and-van-by-the-sea.webp
+coverAlt: Gulls in flight, motion-blurred, around a white van passing along the
+  sea under a pale cloudy sky
+coverPosition: 40% 50%
 photos:
   - image: ../../assets/photos/in-passing/gulls-and-van-by-the-sea.webp
     alt: Gulls in flight, motion-blurred, around a white van passing along the
