@@ -1,8 +1,8 @@
 ---
 title: About – Studio Sarhan
-description: "About Khaled Sarhan, a Vienna-based photographer completing the Photo Expert Diploma at LIK Akademie. Personal series on light, stillness and motion."
+description: "About Khaled Sarhan, a Vienna-based photographer completing the Photo Expert Diploma at LIK Akademie. Series on light, stillness and motion."
 heading: Khaled Sarhan
-summary: "I’m a Vienna-based photographer completing the Photo Expert Diploma at the LIK Akademie. My personal series are about light, stillness and motion, mostly in black and white."
+summary: "I’m a Vienna-based photographer completing the Photo Expert Diploma at the LIK Akademie. My series are about light, stillness and motion, mostly in black and white."
 services:
   - title: Portraits
     text: Portraits of people and the places they belong to. Get in touch for
