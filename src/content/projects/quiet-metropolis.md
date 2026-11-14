@@ -22,5 +22,9 @@ photos:
     alt: City skyline and an elevated train bridge reflected in still water at blue
       hour
     size: auto
+  - image: ../../assets/photos/quiet-metropolis/tower-in-fog.webp
+    alt: The upper floors of a high-rise tower with stacked balconies, dissolving
+      into fog towards the bottom of the frame
+    size: auto
 ---
 A series about the calm that sits inside the city. Shot from hillsides, rooftops and waterfronts, these frames step back from the noise to see the places we live as part of a larger landscape, small beneath wide skies, weather and changing light. It is about distance and stillness, and the moments when a city seems to hold its breath.
